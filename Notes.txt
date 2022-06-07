@@ -1,0 +1,24 @@
+Lecture Notes
+A) Context API: A single place to manage related infroamtion : Replica for Redux
+    A1) createContext
+    A2) Provider
+    A3) Wrap application in provider
+    A4) useContext
+
+B) useReducer: A single function to mange state
+    B1) reducer
+    B2) action
+    B3) dispatch
+
+C) Redux: It a sinple place to manage all information
+    C1) npm i redux react-redux
+    C2) create Reducer Function
+    C3) create Initial State
+    C4) createStore and pass Reducer Function and InitialState to it.
+    C5) Wrap our application ReduxProvider and pass store to it
+    C6) using useDispatch and useSelector in our application
+        C6-A) useSelector to read information from store
+            C6-A-1) passa function to useSelector(state => state.count)
+        C6-B)useDispatch to perform action
+    C7) use Switch cases in the reducer function to avoid problematic cases.
+    C8) for action types, We created constants to avoid spelling mistakes.

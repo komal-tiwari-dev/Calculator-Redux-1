@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { inc,dec,add,sub,mult,divide,reset,set_val } from "./Store/action";
 function App() {
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
+  const input_val = useSelector((state) => state.input);
+  console.log(count,input_val);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello</h1>
+      <h1>Counter:{count}</h1>
+      <div>
+        <button onClick={() => dispatch(dec())}>-</button>
+        <button onClick={() => dispatch(inc())}>+</button>
+      </div>
+      <div>
+        <input
+          type="number"
+          onChange={(e) => {
+            dispatch(set_val(e.target.value));
+          }}
+        />
+        <div>
+          <button onClick={() => dispatch(add(input_val))}>add</button>
+          <button onClick={() => dispatch(sub(input_val))}>sub</button>
+          <button onClick={() => dispatch(mult(input_val))}>mult</button>
+          <button onClick={() => dispatch(divide(input_val))}>divide</button>
+          <button onClick={() => dispatch(reset(input_val))}>Reset</button>
+        </div>
+      </div>
     </div>
   );
 }
